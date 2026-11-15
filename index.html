@@ -2,183 +2,376 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151515">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>中歐冬日逃離計劃 12/18–1/3</title>
 <meta name="description" content="維也納進出：布達佩斯、布拉格、庫倫洛夫、哈修塔特、維也納跨年">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#ebe7df; --ink:#151515; --orange:#e4552e; --blue:#79aedc; --tan:#d9c49c; --white:#f7f4ee;
-  --ok:#2c7a4b;
+  --paper:#ebe7df; --ink:#151515; --orange:#e4552e; --blue:#79aedc; --tan:#d9c49c; --white:#f7f4ee; --gold:#b8964f; --navy:#2f6fa8;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%}
 body{
   margin:0;color:var(--ink);background:var(--paper);
   background-image:radial-gradient(rgba(0,0,0,.07) 1px,transparent 1.5px);background-size:7px 7px;
-  font:16px/1.65 "Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;font-weight:500;
+  font:15px/1.6 "Noto Sans TC",-apple-system,"PingFang TC",sans-serif;font-weight:500;
+  -webkit-tap-highlight-color:transparent;
 }
-.wrap{max-width:780px;margin:0 auto;padding:0 16px}
-.en-font{font-family:Anton,Impact,"Arial Narrow","Noto Sans TC",sans-serif;letter-spacing:.01em}
+.wrap{max-width:480px;margin:0 auto;padding:0 max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left))}
+.en,.t,.dn{font-weight:900}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;overflow:hidden;padding:34px 0 0}
-.hero .tag{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:2rem;line-height:1}
-.hero h1{margin:6px 0 0;font-weight:900;font-size:clamp(3.2rem,15vw,6.4rem);line-height:1;letter-spacing:-.02em}
-.br{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px;margin:18px 0 6px}
-.br .ch{position:relative;font-weight:900;font-size:clamp(2.1rem,10vw,4.4rem);line-height:1;white-space:nowrap}
-.br .ch .dot{position:absolute;left:.12em;top:.02em;width:1.05em;height:1.05em;border-radius:50%;background:var(--orange);z-index:-1}
-.br .mid{text-align:center;font-weight:900;font-size:clamp(.7rem,2.6vw,.95rem);letter-spacing:.35em;white-space:nowrap}
-.br .mid small{display:block;font-family:Anton,Impact,"Arial Narrow",sans-serif;letter-spacing:.04em;font-size:clamp(.85rem,3.4vw,1.1rem);font-weight:400;margin-top:2px}
-.stage{position:relative;margin-top:22px;min-height:330px}
-.stage::before{content:"";position:absolute;left:-50vw;right:-50vw;top:150px;bottom:0;background:var(--blue);
-  background-image:radial-gradient(rgba(255,255,255,.18) 1.2px,transparent 1.6px);background-size:7px 7px;z-index:0}
-.big{position:relative;z-index:2;font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:clamp(3.6rem,17vw,6.6rem);line-height:.95;margin:0;padding-top:4px}
-.big .o{color:var(--orange)}
-.ticket{position:relative;z-index:3;margin:26px 10px 0 auto;width:min(78%,330px);background:var(--orange);color:var(--white);
-  border:3px solid var(--ink);transform:rotate(-7deg);padding:18px 18px 14px;box-shadow:8px 8px 0 var(--ink);
-  background-image:radial-gradient(rgba(0,0,0,.14) 1.1px,transparent 1.5px);background-size:6px 6px}
-.ticket .k{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:clamp(2.4rem,10vw,3.6rem);line-height:.9;color:var(--ink)}
-.ticket .d{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:1.35rem;margin-top:6px}
-.ticket .s{font-weight:700;font-size:.85rem;margin-top:4px}
-@media(min-width:700px){.ticket{margin-top:-120px;width:290px}}
-.burst{position:absolute;z-index:3;width:70px;height:70px}
-.burst i{position:absolute;left:50%;top:50%;width:22px;height:5px;background:var(--ink);border-radius:3px;transform-origin:-14px 50%}
-.splash{position:absolute;z-index:1;width:46px;height:62px;background:var(--blue);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:rotate(30deg)}
-.route{position:relative;z-index:2;margin-top:26px;padding-bottom:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.pill{font-weight:900;border:3px solid var(--ink);background:var(--white);padding:3px 12px;border-radius:999px;box-shadow:3px 3px 0 var(--ink);font-size:.95rem}
-.pill.b{background:var(--orange);color:var(--white)}.pill.p{background:var(--ink);color:var(--white)}.pill.v{background:var(--tan)}
-.arrow{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:1.3rem}
-.hero-note{position:relative;z-index:2;font-weight:900;margin:0;padding-bottom:28px;display:flex;align-items:center;gap:10px}
-.hero-note::before{content:"";width:34px;height:3px;background:var(--ink)}
+/* ---------- TOP BAR ---------- */
+header{position:sticky;top:0;z-index:10;align-items:center!important;background:var(--ink);color:var(--white);
+  padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+header h1{margin:0;font-size:1.15rem;font-weight:900;line-height:1.2}
+header .en{color:var(--orange);font-size:1.05rem;white-space:nowrap}
+#editBtn{margin-left:auto;flex:none;font:inherit;font-weight:900;font-size:.85rem;padding:4px 12px;border:2px solid var(--white);border-radius:999px;background:transparent;color:var(--white);cursor:pointer}
+body.editing #editBtn{background:#2c8a4b;border-color:#2c8a4b}
+#editBar{position:sticky;top:calc(env(safe-area-inset-top) + 46px);z-index:9;background:#fff6d6;border-bottom:2px solid var(--ink);font-size:.8rem;font-weight:700;padding:6px 14px}
+#editBar button{font:inherit;font-weight:900;color:#d0342c;background:none;border:none;text-decoration:underline;padding:0;cursor:pointer}
+body.editing .trip-ul{outline:2px dashed #2c8a4b;outline-offset:3px;border-radius:3px;background:#fff;min-height:1.6em}
+body.editing .trip-ul a{pointer-events:none}
+.trip-ul:focus{outline-style:solid}
 
-/* ---------- NAV ---------- */
-nav{position:sticky;top:0;z-index:20;background:var(--ink)}
-nav .in{max-width:780px;margin:0 auto;padding:9px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-nav .in::-webkit-scrollbar{display:none}
-nav a{flex:none;text-decoration:none;color:var(--ink);background:var(--paper);font-weight:900;font-size:.88rem;padding:3px 12px;border-radius:999px}
-nav a:hover{background:var(--orange);color:var(--white)}
+/* ---------- DAY LIST ---------- */
+.list{position:relative;padding-left:40px;border:3px solid var(--ink);border-radius:6px;background:var(--white);box-shadow:4px 4px 0 var(--ink);overflow:hidden;margin-right:4px}
+.row .body{border-top:1.5px solid rgba(0,0,0,.18);scroll-margin-top:60px}
+.row:first-child .body{border-top:none}
 
-/* ---------- SECTIONS ---------- */
-main{padding-bottom:40px}
-.sec{margin-top:40px}
-.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:4px solid var(--ink);padding-bottom:4px;margin-bottom:14px}
-.sechead .en{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:clamp(2.6rem,11vw,3.8rem);line-height:.95;color:var(--cc)}
-.sechead .zh{font-weight:900;font-size:1.05rem}
-.sechead .zh::before{content:"（"}.sechead .zh::after{content:"）"}
-.c-fly{--cc:var(--ink);--ch:var(--tan);--ct:var(--ink)}
-.c-bud{--cc:var(--orange);--ch:var(--orange);--ct:var(--white)}
-.c-prg{--cc:var(--ink);--ch:var(--ink);--ct:var(--white)}
-.c-ckr{--cc:#9a7a3e;--ch:var(--tan);--ct:var(--ink)}
-.c-vie{--cc:#2f6fa8;--ch:var(--blue);--ct:var(--ink)}
-.c-hal{--cc:#2f6fa8;--ch:var(--white);--ct:var(--ink)}
+/* city strip: one merged block per consecutive stay, positioned by script (half-day units) */
+.seg{position:absolute;left:0;width:40px;border-right:2px solid var(--ink);border-top:2px solid var(--ink);
+  background-color:var(--cc);color:var(--ct);
+  writing-mode:vertical-rl;text-orientation:upright;font-weight:900;font-size:.9rem;letter-spacing:.12em;
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.seg[data-s="0"]{border-top:none}
+/* 淺暖色系，避開內文的紅／綠／黑 */
+.fly{--cc:#f8dfd0;--ct:var(--ink)} .bud{--cc:#fbc8a6;--ct:var(--ink)} .prg{--cc:#f2b8c0;--ct:var(--ink)}
+.ckr{--cc:#f6e6a6;--ct:var(--ink)} .vie{--cc:#fcd89e;--ct:var(--ink)} .hal{--cc:#e6cdb5;--ct:var(--ink)}
 
-.day{background:var(--white);border:3px solid var(--ink);border-radius:6px;box-shadow:6px 6px 0 var(--ink);margin:0 6px 20px 0;overflow:hidden}
-.dhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ch);color:var(--ct);border-bottom:3px solid var(--ink);padding:8px 12px;
-  background-image:radial-gradient(rgba(0,0,0,.10) 1px,transparent 1.4px);background-size:6px 6px}
-.date{display:flex;align-items:baseline}
-.dn{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-size:1.9rem;line-height:1}
-.wd{font-weight:900;font-size:.9rem}
-.place{font-weight:900;flex:1;min-width:8em}
-.stay{font-size:.8rem;font-weight:900;border:2px solid currentColor;border-radius:999px;padding:0 8px;white-space:nowrap}
-.day ul{margin:0;padding:10px 14px 10px 32px}
-.day li{margin:3px 0}
-.day li::marker{color:var(--orange)}
-.t{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;font-size:1.08em;letter-spacing:.02em}
+/* content */
+.body{padding:10px 12px 12px;min-width:0;overflow-wrap:anywhere}
+.dh{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+.dn{font-size:1.6rem;line-height:1}
+.wd{font-weight:900;font-size:.85rem}
+ul{margin:0;padding-left:17px}
+li{margin:3px 0}
+li::marker{color:var(--ink)}
+.t{font-size:1.05em}
+
+.f{display:grid;grid-template-columns:30px 1fr;gap:6px;align-items:start;margin-top:6px;font-size:.88rem}
+.f > b{font-size:.72rem;font-weight:900;background:var(--ink);color:var(--white);border-radius:3px;text-align:center;height:20px;line-height:20px}
+.f > div{line-height:20px}
+.f.note > b{background:var(--ink)}
+.f.note > div{color:var(--ink);line-height:20px}
+.f.note > div.warn{color:var(--ink)}
+.tix{display:flex;flex-wrap:wrap;gap:0 14px}
+.tk{display:inline-flex;align-items:center;gap:5px;font-size:inherit;font-weight:900;padding:0 6px 0 0;line-height:20px;
+  color:#d0342c;cursor:pointer;user-select:none;-webkit-user-select:none;min-height:20px}
+.tk input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;margin:0;border:2.5px solid currentColor;border-radius:4px;background:var(--white);display:grid;place-content:center}
+.tk input::after{content:"✓";font-size:13px;font-weight:900;line-height:1;color:var(--white);opacity:0}
+.tk input:checked{background:currentColor}
+.tk input:checked::after{opacity:1}
+.tk:has(input:checked){color:#2c8a4b}
+.progress{font-size:.8rem;font-weight:900;margin:12px 2px 10px;display:flex;align-items:center;gap:8px}
+.progress .bar{flex:1;height:8px;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--white)}
+.progress .bar i{display:block;height:100%;background:#2c8a4b;width:0;transition:width .2s}
+a.lk{color:inherit;font-weight:900;text-decoration:underline;text-decoration-color:var(--ink);text-decoration-thickness:2px;text-underline-offset:3px}
+.muted{color:var(--ink)}
 .warn{font-weight:900;color:var(--orange)}
-.tix{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}
-.tk{font-size:.78rem;font-weight:900;padding:2px 9px;border:2px solid var(--ink);border-radius:4px}
-.tk.ok{background:var(--ink);color:var(--white)}
-.tk.todo{background:var(--white);color:var(--orange);border-color:var(--orange);border-style:dashed}
-.plain .dhead{display:none}
-.grid{display:grid;gap:0 14px}
-@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}.grid .day ul{padding-left:26px}}
-.check{list-style:none;padding-left:14px!important}
-.check li{display:flex;gap:8px;align-items:flex-start}
-.check .box{flex:none;width:16px;height:16px;border:2.5px solid var(--ink);border-radius:3px;margin-top:5px}
 
-a.map{color:inherit;text-decoration:none;border-bottom:2.5px solid var(--orange);font-weight:700}
-.dhead a.map{border-color:currentColor}
-a.map::after{content:"↗";font-size:.72em;margin-left:1px;color:var(--orange);font-weight:900}
-a.map:hover{background:var(--orange);color:var(--white)}
+/* today */
+.row.today .body{background:#fff6d6}
+.row.today .dn::after{content:"TODAY";font-size:.7rem;background:var(--orange);color:var(--white);padding:1px 5px;border-radius:3px;margin-left:6px;vertical-align:middle}
 
-footer{border-top:4px solid var(--ink);margin-top:20px;padding:16px 0 40px;font-weight:700;font-size:.85rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-footer .en-font{font-size:1.4rem}
+a.map{color:inherit;text-decoration:none;border-bottom:2px solid var(--ink);font-weight:700}
+a.map:active{background:var(--orange);color:var(--white)}
+
+footer{margin-top:18px;padding:12px 2px calc(30px + env(safe-area-inset-bottom));font-weight:700;font-size:.8rem;border-top:4px solid var(--ink)}
+footer .en{font-size:1.3rem;display:block}
 </style>
 </head>
 <body>
 
-<header class="hero"><div class="wrap">
-  <div class="tag en-font">#</div>
-  <h1>中歐冬日</h1>
-  <div class="br">
-    <span class="ch">（<span style="position:relative">聖<span class="dot"></span></span>）</span>
-    <span class="mid">冬 日 逃 離 計 劃<small>Winter Escape Plan</small></span>
-    <span class="ch">（誕）</span>
-  </div>
-  <div class="stage">
-    <div class="splash" style="left:38%;top:20px"></div>
-    <div class="splash" style="left:52%;top:-6px;width:30px;height:42px;transform:rotate(-20deg)"></div>
-    <div class="burst" style="right:4%;top:150px">
-      <i style="transform:rotate(0deg)"></i><i style="transform:rotate(40deg)"></i><i style="transform:rotate(80deg)"></i><i style="transform:rotate(-40deg)"></i><i style="transform:rotate(-80deg)"></i>
-    </div>
-    <p class="big">XMAS<br>IN <span class="o">CENTRAL</span><br>EUROPE</p>
-    <div class="ticket">
-      <div class="k">XMAS<br>TRIP</div>
-      <div class="d">12.18 — 01.03</div>
-      <div class="s">兩人・維也納進出</div>
-    </div>
-    <div class="route">
-      <span class="pill v">維也納機場</span><span class="arrow">→</span>
-      <span class="pill b">布達佩斯 4 晚</span><span class="arrow">→</span>
-      <span class="pill p">布拉格 5 晚</span><span class="arrow">→</span>
-      <span class="pill v">維也納 5 晚</span>
-    </div>
-    <p class="hero-note">庫倫洛夫、哈修塔特一日遊・維也納跨年</p>
-  </div>
-</div></header>
+<header><h1>中歐冬日逃離計劃</h1><span class="en">12.18 — 01.03</span><button id="editBtn" type="button">✎ 編輯</button></header>
+<div id="editBar" hidden>編輯模式：直接點行程文字修改，換行會新增一項・<button id="resetBtn" type="button">還原原始行程</button></div>
 
-<nav><div class="in">
-  <a href="#fly">去程</a><a href="#bud">布達佩斯</a><a href="#prg">布拉格</a><a href="#vie">維也納</a><a href="#back">回程</a><a href="#stay">住宿</a><a href="#tickets">買票清單</a><a href="#notes">備註</a>
-</div></nav>
+<div class="wrap">
 
-<main class="wrap">
-<section id="fly" class="sec c-fly"><div class="sechead"><span class="en">DEPART</span><span class="zh">出發</span></div>
-<article class="day c-fly"><div class="dhead"><div class="date"><span class="dn">12/18</span><span class="wd">（五）</span></div><div class="place">台北 → 上海 → 西安</div><span class="stay">🛏 機上</span></div><ul><li><b class="t">15:00</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Taoyuan%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">桃園 T2</a> 起飛 MU5008 → <b class="t">17:05</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Pudong%20International%20Airport%20Terminal%201" target="_blank" rel="noopener">上海浦東 T1</a></li><li class="warn">換機場到<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Hongqiao%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">虹橋</a>（需入境、重新託運行李）</li><li><b class="t">20:35</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Hongqiao%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">虹橋 T2</a> 起飛 MU2170 → <b class="t">23:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安咸陽 T5</a></li></ul><div class=tix><span class="tk ok">☑ 去程機票</span></div></article>
-</section>
-<section id="bud" class="sec c-bud"><div class="sechead"><span class="en">BUDAPEST</span><span class="zh">布達佩斯 12/19–12/23</span></div>
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">12/19</span><span class="wd">（六）</span></div><div class="place">西安 → 維也納 → 布達佩斯</div><span class="stay">🛏 布達佩斯</span></div><ul><li><b class="t">01:55</b> 西安起飛 MU5063 → <b class="t">06:00</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20International%20Airport" target="_blank" rel="noopener">維也納 T3</a></li><li>機場站搭火車直達布達佩斯（約 2.5~3 小時）</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%B6r%C3%B6smarty%20t%C3%A9r%20Budapest" target="_blank" rel="noopener">弗羅修馬廣場聖誕市集</a></li></ul><div class=tix><span class="tk todo">☐ 維也納機場 → 布達佩斯火車</span></div></article>
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">12/20</span><span class="wd">（日）</span></div><div class="place">布達佩斯</div><span class="stay">🛏 布達佩斯</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Buda%20Castle" target="_blank" rel="noopener">布達城堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Fishermans%20Bastion%20Budapest" target="_blank" rel="noopener">漁人堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Matthias%20Church%20Budapest" target="_blank" rel="noopener">馬提亞斯教堂</a></li></ul><div class=tix><span class="tk todo">☐ 馬提亞斯教堂（現場買）</span></div></article>
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">12/21</span><span class="wd">（一）</span></div><div class="place">布達佩斯</div><span class="stay">🛏 布達佩斯</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sz%C3%A9chenyi%20Thermal%20Bath" target="_blank" rel="noopener">塞切尼溫泉</a>（早上去人少）</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Heroes%20Square%20Budapest" target="_blank" rel="noopener">英雄廣場</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Andr%C3%A1ssy%20%C3%BAt%20Budapest" target="_blank" rel="noopener">安德拉希大街</a></li></ul><div class=tix><span class="tk ok">☑ 塞切尼溫泉</span></div></article>
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">12/22</span><span class="wd">（二）</span></div><div class="place">布達佩斯</div><span class="stay">🛏 布達佩斯</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building" target="_blank" rel="noopener">國會大廈</a>（逛外觀）、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Basilica%20Budapest" target="_blank" rel="noopener">聖伊什特萬聖殿</a></li><li>晚上多瑙河夜遊（Klook）</li></ul><div class=tix><span class="tk ok">☑ 多瑙河夜遊遊艇</span></div></article>
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">12/23</span><span class="wd">（三）</span></div><div class="place">布達佩斯 → 布拉格</div><span class="stay">🛏 布拉格</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Great%20Market%20Hall%20Budapest" target="_blank" rel="noopener">中央市場</a></li><li><b class="t">18:20</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Budapest%20Ferenc%20Liszt%20International%20Airport%20Terminal%202B" target="_blank" rel="noopener">布達佩斯 T2B</a> 起飛 Ryanair FR4034 → <b class="t">19:35</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1clav%20Havel%20Airport%20Prague%20Terminal%202" target="_blank" rel="noopener">布拉格 T2</a></li><li>入住後逛<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場聖誕市集</a>（開到 22:00）</li></ul><div class=tix><span class="tk ok">☑ Ryanair 機票</span><span class="tk todo">☐ 100E 機場巴士</span></div></article>
-</section>
-<section id="prg" class="sec c-prg"><div class="sechead"><span class="en">PRAHA</span><span class="zh">布拉格 12/23–12/28</span></div>
-<article class="day c-prg"><div class="dhead"><div class="date"><span class="dn">12/24</span><span class="wd">（四）</span></div><div class="place">布拉格</div><span class="stay">🛏 布拉格</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Astronomical%20Clock" target="_blank" rel="noopener">天文鐘</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Josefov%20Prague" target="_blank" rel="noopener">猶太區</a></li><li class="warn">平安夜下午店家提早關，晚餐先訂位</li></ul><div class=tix><span class="tk todo">☐ 平安夜晚餐訂位</span></div></article>
-<article class="day c-prg"><div class="dhead"><div class="date"><span class="dn">12/25</span><span class="wd">（五）</span></div><div class="place">布拉格</div><span class="stay">🛏 布拉格</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Charles%20Bridge%20Prague" target="_blank" rel="noopener">查理大橋</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Mal%C3%A1%20Strana%20Prague" target="_blank" rel="noopener">小城區</a>散步、搭<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pet%C5%99%C3%ADn%20Funicular%20%C3%9Ajezd%20Prague" target="_blank" rel="noopener">佩特任山纜車</a>上山看全景</li><li><b class="t">16:30</b> 啤酒浴 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Spa%20Beerland%20Nov%C3%BD%20Sv%C4%9Bt%2077/3%20Praha" target="_blank" rel="noopener">Spa Beerland Prague</a></li><li><b class="t">17:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場聖誕市集</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wenceslas%20Square%20Prague" target="_blank" rel="noopener">瓦茨拉夫廣場市集</a></li></ul><div class=tix><span class="tk todo">☐ 24 小時交通票（搭纜車免費）</span><span class="tk ok">☑ 啤酒浴</span></div></article>
-<article class="day c-ckr"><div class="dhead"><div class="date"><span class="dn">12/26</span><span class="wd">（六）</span></div><div class="place">庫倫洛夫一日遊</div><span class="stay">🛏 布拉格</span></div><ul><li><b class="t">09:20</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD" target="_blank" rel="noopener">布拉格中央車站</a> 搭 ČD 火車 → <b class="t">11:49</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener">庫倫洛夫</a></li><li><b class="t">17:05</b> RegioJet 巴士（<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%8Cesk%C3%BD%20Krumlov%20U%20Luny%20bus%20stop" target="_blank" rel="noopener">U Luny 站</a>）→ <b class="t">19:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20Na%20Kn%C3%AD%C5%BEec%C3%AD%20bus%20station" target="_blank" rel="noopener">布拉格 Na Knížecí</a>（地鐵 B 線 Anděl 站）</li></ul><div class=tix><span class="tk ok">☑ 去程 ČD 火車</span><span class="tk ok">☑ 回程 RegioJet 巴士</span></div></article>
-<article class="day c-prg"><div class="dhead"><div class="date"><span class="dn">12/27</span><span class="wd">（日）</span></div><div class="place">布拉格</div><span class="stay">🛏 布拉格</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Castle" target="_blank" rel="noopener">布拉格城堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Vitus%20Cathedral%20Prague" target="_blank" rel="noopener">聖維特主教座堂</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Golden%20Lane%20Prague" target="_blank" rel="noopener">黃金巷</a></li><li class="warn">12/24 全關，12/25~26 大教堂只開下午，所以排這天</li></ul><div class=tix><span class="tk todo">☐ 布拉格城堡聯票</span></div></article>
-<article class="day c-vie"><div class="dhead"><div class="date"><span class="dn">12/28</span><span class="wd">（一）</span></div><div class="place">布拉格 → 維也納</div><span class="stay">🛏 維也納</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Dancing%20House%20Prague" target="_blank" rel="noopener">跳舞的房子</a>、河畔旁咖啡廳</li><li><b class="t">13:05</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD" target="_blank" rel="noopener">布拉格中央車站</a> RegioJet RJ 1035 → <b class="t">17:21</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Hauptbahnhof" target="_blank" rel="noopener">維也納中央車站</a></li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Cathedral%20Vienna" target="_blank" rel="noopener">聖史蒂芬大教堂</a>散步</li></ul><div class=tix><span class="tk ok">☑ RegioJet 火車票</span><span class="tk todo">☐ 維也納週票</span></div></article>
-</section>
-<section id="vie" class="sec c-vie"><div class="sechead"><span class="en">WIEN</span><span class="zh">維也納 12/28–1/2</span></div>
-<article class="day c-hal"><div class="dhead"><div class="date"><span class="dn">12/29</span><span class="wd">（二）</span></div><div class="place">哈修塔特一日遊</div><span class="stay">🛏 維也納</span></div><ul><li><b class="t">07:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Westbahnhof" target="_blank" rel="noopener">維也納西站</a> 搭 ÖBB → <b class="t">10:54</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhof%20Hallstatt" target="_blank" rel="noopener">哈修塔特火車站</a></li><li>搭渡輪過湖到小鎮（約 10 分鐘）</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hallstatt%20Marktplatz" target="_blank" rel="noopener">湖畔雪景小鎮</a></li><li class="warn">回程渡輪要接上 <b class="t">17:03</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhof%20Hallstatt" target="_blank" rel="noopener">哈修塔特火車站</a> → <b class="t">20:15</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Westbahnhof" target="_blank" rel="noopener">維也納西站</a></li></ul><div class=tix><span class="tk ok">☑ ÖBB 來回火車票</span><span class="tk todo">☐ 渡輪（現場買）</span></div></article>
-<article class="day c-vie"><div class="dhead"><div class="date"><span class="dn">12/30</span><span class="wd">（三）</span></div><div class="place">維也納</div><span class="stay">🛏 維也納</span></div><ul><li>睡晚一點</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sch%C3%B6nbrunn%20Palace" target="_blank" rel="noopener">美泉宮</a>（聖誕市集開到 1/6）</li><li>下午<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Naschmarkt%20Wien" target="_blank" rel="noopener">納許市場</a></li></ul><div class=tix><span class="tk todo">☐ 美泉宮門票（先上網訂時段）</span><span class="tk todo">☐ 國家歌劇院（選購）</span></div></article>
-<article class="day c-vie"><div class="dhead"><div class="date"><span class="dn">12/31</span><span class="wd">（四）</span></div><div class="place">維也納</div><span class="stay">🛏 維也納</span></div><ul><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Belvedere%20Palace%20Vienna" target="_blank" rel="noopener">美景宮</a>（聖誕市集開到 12/31）</li><li>晚上<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rathausplatz%20Wien" target="_blank" rel="noopener">跨年步道活動</a> 🎆</li></ul><div class=tix><span class="tk todo">☐ 美景宮門票</span></div></article>
-<article class="day c-vie"><div class="dhead"><div class="date"><span class="dn">1/1</span><span class="wd">（五）</span></div><div class="place">維也納</div><span class="stay">🛏 維也納</span></div><ul><li>看新年音樂會轉播</li><li>下午<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sisi%20Museum%20Hofburg%20Vienna" target="_blank" rel="noopener">霍夫堡皇宮</a>（元旦開放時間需確認）</li></ul><div class=tix><span class="tk todo">☐ 霍夫堡皇宮（茜茜博物館）</span></div></article>
-</section>
-<section id="back" class="sec c-fly"><div class="sechead"><span class="en">HOME</span><span class="zh">回家</span></div>
-<article class="day c-fly"><div class="dhead"><div class="date"><span class="dn">1/2</span><span class="wd">（六）</span></div><div class="place">維也納 → 西安</div><span class="stay">🛏 機上</span></div><ul><li><b class="t">12:25</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20International%20Airport" target="_blank" rel="noopener">維也納 T3</a> 起飛 MU5064 → 1/3 <b class="t">05:50</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安咸陽 T5</a>（轉機 2 小時 5 分，行李直掛）</li></ul><div class=tix><span class="tk ok">☑ 回程機票</span><span class="tk todo">☐ 市區到機場的延伸票或 CAT</span></div></article>
-<article class="day c-fly"><div class="dhead"><div class="date"><span class="dn">1/3</span><span class="wd">（日）</span></div><div class="place">西安 → 南京 → 台北</div></div><ul><li><b class="t">07:55</b> 西安 T5 起飛 MU2387 → <b class="t">09:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing%20Lukou%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">南京祿口 T2</a></li><li>南京轉機 4 小時 40 分</li><li><b class="t">14:25</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing%20Lukou%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">南京 T2</a> 起飛 MU5001 → <b class="t">16:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Taoyuan%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">桃園 T2</a></li></ul></article>
-</section><section id="stay" class="sec c-ckr"><div class="sechead"><span class="en">STAY</span><span class="zh">住宿</span></div>
-<div class="grid">
-<article class="day c-bud"><div class="dhead"><div class="date"><span class="dn">BUD</span></div><div class="place">12/19–12/23・4 晚</div></div><ul><li><a class="map" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">Velvet Dream Studio（Airbnb）</a></li><li>佩斯側 13 區，走路約 8 分鐘到地鐵 M3 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Lehel%20t%C3%A9r%20metro%20station%20Budapest" target="_blank" rel="noopener">Lehel tér 站</a></li><li>自助入住</li></ul></article>
-<article class="day c-prg"><div class="dhead"><div class="date"><span class="dn">PRG</span></div><div class="place">12/23–12/28・5 晚</div></div><ul><li><a class="map" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">Žižkov 天際線景觀公寓（Airbnb）</a></li><li>日希科夫區，電車站約 200 公尺</li><li>15:00 後入住、11:00 前退房；取鑰匙方式看 Airbnb 訊息</li></ul></article>
-<article class="day c-vie"><div class="dhead"><div class="date"><span class="dn">VIE</span></div><div class="place">12/28–1/2・5 晚</div></div><ul><li><a class="map" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">K22 Smart Rooms（Booking.com）</a></li><li>17 區 Hernals（<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=K22%20Smart%20Rooms%20Wien" target="_blank" rel="noopener">地圖</a>）</li><li>自助入住</li></ul></article>
-</div></section><section id="tickets" class="sec c-bud"><div class="sechead"><span class="en">TO BUY</span><span class="zh">還沒買的票</span></div><article class="day plain"><ul class="check"><li><span class="box"></span><b>12/19</b> 維也納機場 → 布達佩斯火車</li><li><span class="box"></span><b>12/20</b> 馬提亞斯教堂（現場買）</li><li><span class="box"></span><b>12/23</b> 100E 機場巴士</li><li><span class="box"></span><b>12/24</b> 平安夜晚餐訂位</li><li><span class="box"></span><b>12/25</b> 24 小時交通票（搭纜車免費）</li><li><span class="box"></span><b>12/27</b> 布拉格城堡聯票</li><li><span class="box"></span><b>12/28</b> 維也納週票</li><li><span class="box"></span><b>12/29</b> 渡輪（現場買）</li><li><span class="box"></span><b>12/30</b> 美泉宮門票（先上網訂時段）</li><li><span class="box"></span><b>12/30</b> 國家歌劇院（選購）</li><li><span class="box"></span><b>12/31</b> 美景宮門票</li><li><span class="box"></span><b>1/1</b> 霍夫堡皇宮（茜茜博物館）</li><li><span class="box"></span><b>1/2</b> 市區到機場的延伸票或 CAT</li></ul></article></section>
-<section id="notes" class="sec c-fly"><div class="sechead"><span class="en">NOTE</span><span class="zh">備註</span></div><article class="day plain"><ul><li>12/23 Ryanair FR4034 網路報到：起飛前 24 小時到 2 小時之間，要在 Ryanair App 或官網辦好，否則機場臨櫃報到要另外收費。</li></ul></article></section>
-<footer><span class="en-font">LET'S GO ✈</span><span>有橘色底線的地點，點了會開 Google 地圖・最後更新 2026/11/14</span></footer>
+<div class="progress"><span>票券進度</span><div class="bar"><i id="pbar"></i></div><span id="ptxt"></span></div>
+
+<main class="list">
+
+<!-- 12/18 -->
+<section class="row" data-d="2026-12-18">
+<div class="body">
+<div class="dh"><span class="dn">12/18</span><span class="wd">（五）</span></div>
+<ul class="trip-ul"><li><b class="t">15:00</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Taoyuan%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">桃園 T2</a> MU5008 → <b class="t">17:05</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Pudong%20International%20Airport%20Terminal%201" target="_blank" rel="noopener">浦東 T1</a></li><li>換機場到<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Hongqiao%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">虹橋</a></li><li><b class="t">20:35</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Hongqiao%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">虹橋 T2</a> MU2170 → <b class="t">23:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安咸陽 T5</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="去程機票" checked><span>去程機票</span></label></div></div>
+<div class="f stay"><b>住</b><div class="muted">🛏 機上</div></div>
+<div class="f note"><b>註</b><div class="warn">浦東→虹橋需入境、重新託運行李</div></div>
+</div></section>
+
+<!-- 12/19 -->
+<section class="row" data-d="2026-12-19">
+<div class="body">
+<div class="dh"><span class="dn">12/19</span><span class="wd">（六）</span></div>
+<ul class="trip-ul"><li><b class="t">01:55</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安咸陽 T5</a> MU5063 → <b class="t">06:00</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20International%20Airport" target="_blank" rel="noopener">維也納 T3</a></li><li>機場站搭火車直達布達佩斯（約 2.5~3 小時）</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%B6r%C3%B6smarty%20t%C3%A9r%20Budapest" target="_blank" rel="noopener">弗羅修馬廣場聖誕市集</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="維也納機場 → 布達佩斯火車"><span>維也納機場 → 布達佩斯火車</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">🛏 Velvet Dream Studio</a></div></div>
+</div></section>
+
+<!-- 12/20 -->
+<section class="row cont" data-d="2026-12-20">
+<div class="body">
+<div class="dh"><span class="dn">12/20</span><span class="wd">（日）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Buda%20Castle" target="_blank" rel="noopener">布達城堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Fishermans%20Bastion%20Budapest" target="_blank" rel="noopener">漁人堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Matthias%20Church%20Budapest" target="_blank" rel="noopener">馬提亞斯教堂</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="馬提亞斯教堂（現場買）"><span>馬提亞斯教堂（現場買）</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">🛏 Velvet Dream Studio</a></div></div>
+</div></section>
+
+<!-- 12/21 -->
+<section class="row cont" data-d="2026-12-21">
+<div class="body">
+<div class="dh"><span class="dn">12/21</span><span class="wd">（一）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sz%C3%A9chenyi%20Thermal%20Bath" target="_blank" rel="noopener">塞切尼溫泉</a></li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Heroes%20Square%20Budapest" target="_blank" rel="noopener">英雄廣場</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Andr%C3%A1ssy%20%C3%BAt%20Budapest" target="_blank" rel="noopener">安德拉希大街</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="塞切尼溫泉" checked><span>塞切尼溫泉</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">🛏 Velvet Dream Studio</a></div></div>
+<div class="f note"><b>註</b><div>溫泉早上去人少</div></div>
+</div></section>
+
+<!-- 12/22 -->
+<section class="row cont" data-d="2026-12-22">
+<div class="body">
+<div class="dh"><span class="dn">12/22</span><span class="wd">（二）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building" target="_blank" rel="noopener">國會大廈</a>（逛外觀）、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Basilica%20Budapest" target="_blank" rel="noopener">聖伊什特萬聖殿</a></li><li>晚上多瑙河夜遊（Klook）</li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="多瑙河夜遊遊艇" checked><span>多瑙河夜遊遊艇</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">🛏 Velvet Dream Studio</a></div></div>
+</div></section>
+
+<!-- 12/23 -->
+<section class="row cont" data-d="2026-12-23">
+<div class="body">
+<div class="dh"><span class="dn">12/23</span><span class="wd">（三）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Great%20Market%20Hall%20Budapest" target="_blank" rel="noopener">中央市場</a></li><li><b class="t">18:20</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Budapest%20Ferenc%20Liszt%20International%20Airport%20Terminal%202B" target="_blank" rel="noopener">布達佩斯 T2B</a> Ryanair FR4034 → <b class="t">19:35</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1clav%20Havel%20Airport%20Prague%20Terminal%202" target="_blank" rel="noopener">布拉格 T2</a></li><li>入住後逛<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場聖誕市集</a>（開到 22:00）</li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="Ryanair 機票" checked><span>Ryanair 機票</span></label><label class="tk"><input type="checkbox" data-k="100E 機場巴士"><span>100E 機場巴士</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">🛏 Žižkov 天際線景觀公寓</a></div></div>
+<div class="f note"><b>註</b><div class="warn">Ryanair 網路報到：起飛前 24~2 小時內用 App 或官網辦好，否則臨櫃報到要另外收費</div></div>
+</div></section>
+
+<!-- 12/24 -->
+<section class="row cont" data-d="2026-12-24">
+<div class="body">
+<div class="dh"><span class="dn">12/24</span><span class="wd">（四）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Astronomical%20Clock" target="_blank" rel="noopener">天文鐘</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Josefov%20Prague" target="_blank" rel="noopener">猶太區</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="平安夜晚餐訂位"><span>平安夜晚餐訂位</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">🛏 Žižkov 天際線景觀公寓</a></div></div>
+<div class="f note"><b>註</b><div class="warn">平安夜下午店家提早關，晚餐先訂位</div></div>
+</div></section>
+
+<!-- 12/25 -->
+<section class="row cont" data-d="2026-12-25">
+<div class="body">
+<div class="dh"><span class="dn">12/25</span><span class="wd">（五）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Charles%20Bridge%20Prague" target="_blank" rel="noopener">查理大橋</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Mal%C3%A1%20Strana%20Prague" target="_blank" rel="noopener">小城區</a>散步、搭<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pet%C5%99%C3%ADn%20Funicular%20%C3%9Ajezd%20Prague" target="_blank" rel="noopener">佩特任山纜車</a>上山看全景</li><li><b class="t">16:30</b> 啤酒浴 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Spa%20Beerland%20Nov%C3%BD%20Sv%C4%9Bt%2077/3%20Praha" target="_blank" rel="noopener">Spa Beerland</a></li><li><b class="t">17:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Square%20Prague" target="_blank" rel="noopener">老城廣場市集</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wenceslas%20Square%20Prague" target="_blank" rel="noopener">瓦茨拉夫廣場市集</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="24 小時交通票"><span>24 小時交通票</span></label><label class="tk"><input type="checkbox" data-k="啤酒浴" checked><span>啤酒浴</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">🛏 Žižkov 天際線景觀公寓</a></div></div>
+<div class="f note"><b>註</b><div>有 24 小時交通票搭纜車免費</div></div>
+</div></section>
+
+<!-- 12/26 -->
+<section class="row" data-d="2026-12-26">
+<div class="body">
+<div class="dh"><span class="dn">12/26</span><span class="wd">（六）</span></div>
+<ul class="trip-ul"><li><b class="t">09:20</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD" target="_blank" rel="noopener">布拉格中央車站</a> ČD 火車 → <b class="t">11:49</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener">庫倫洛夫</a></li><li><b class="t">17:05</b> RegioJet 巴士（<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%8Cesk%C3%BD%20Krumlov%20U%20Luny%20bus%20stop" target="_blank" rel="noopener">U Luny 站</a>）→ <b class="t">19:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20Na%20Kn%C3%AD%C5%BEec%C3%AD%20bus%20station" target="_blank" rel="noopener">布拉格 Na Knížecí</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="去程 ČD 火車" checked><span>去程 ČD 火車</span></label><label class="tk"><input type="checkbox" data-k="回程 RegioJet 巴士" checked><span>回程 RegioJet 巴士</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">🛏 Žižkov 天際線景觀公寓</a></div></div>
+<div class="f note"><b>註</b><div>Na Knížecí 在地鐵 B 線 Anděl 站</div></div>
+</div></section>
+
+<!-- 12/27 -->
+<section class="row" data-d="2026-12-27">
+<div class="body">
+<div class="dh"><span class="dn">12/27</span><span class="wd">（日）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Prague%20Castle" target="_blank" rel="noopener">布拉格城堡</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Vitus%20Cathedral%20Prague" target="_blank" rel="noopener">聖維特主教座堂</a>、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Golden%20Lane%20Prague" target="_blank" rel="noopener">黃金巷</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="布拉格城堡聯票"><span>布拉格城堡聯票</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1577793287280629596" target="_blank" rel="noopener">🛏 Žižkov 天際線景觀公寓</a></div></div>
+<div class="f note"><b>註</b><div>城堡 12/24 全關，12/25~26 大教堂只開下午，所以排這天</div></div>
+</div></section>
+
+<!-- 12/28 -->
+<section class="row cont" data-d="2026-12-28">
+<div class="body">
+<div class="dh"><span class="dn">12/28</span><span class="wd">（一）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Dancing%20House%20Prague" target="_blank" rel="noopener">跳舞的房子</a>、河畔旁咖啡廳</li><li><b class="t">13:05</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Praha%20hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD" target="_blank" rel="noopener">布拉格中央車站</a> RJ 1035 → <b class="t">17:21</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Hauptbahnhof" target="_blank" rel="noopener">維也納中央車站</a></li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Cathedral%20Vienna" target="_blank" rel="noopener">聖史蒂芬大教堂</a>散步</li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="RegioJet 火車票" checked><span>RegioJet 火車票</span></label><label class="tk"><input type="checkbox" data-k="維也納週票"><span>維也納週票</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">🛏 K22 Smart Rooms</a></div></div>
+</div></section>
+
+<!-- 12/29 -->
+<section class="row" data-d="2026-12-29">
+<div class="body">
+<div class="dh"><span class="dn">12/29</span><span class="wd">（二）</span></div>
+<ul class="trip-ul"><li><b class="t">07:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Westbahnhof" target="_blank" rel="noopener">維也納西站</a> ÖBB → <b class="t">10:54</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhof%20Hallstatt" target="_blank" rel="noopener">哈修塔特火車站</a></li><li>渡輪過湖（約 10 分鐘）到<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hallstatt%20Marktplatz" target="_blank" rel="noopener">湖畔雪景小鎮</a></li><li><b class="t">17:03</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhof%20Hallstatt" target="_blank" rel="noopener">哈修塔特火車站</a> → <b class="t">20:15</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wien%20Westbahnhof" target="_blank" rel="noopener">維也納西站</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="ÖBB 來回火車票" checked><span>ÖBB 來回火車票</span></label><label class="tk"><input type="checkbox" data-k="渡輪（現場買）"><span>渡輪（現場買）</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">🛏 K22 Smart Rooms</a></div></div>
+<div class="f note"><b>註</b><div class="warn">回程渡輪要接上 17:03 的火車</div></div>
+</div></section>
+
+<!-- 12/30 -->
+<section class="row" data-d="2026-12-30">
+<div class="body">
+<div class="dh"><span class="dn">12/30</span><span class="wd">（三）</span></div>
+<ul class="trip-ul"><li>睡晚一點</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sch%C3%B6nbrunn%20Palace" target="_blank" rel="noopener">美泉宮</a></li><li>下午<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Naschmarkt%20Wien" target="_blank" rel="noopener">納許市場</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="美泉宮門票"><span>美泉宮門票</span></label><label class="tk"><input type="checkbox" data-k="國家歌劇院（選購）"><span>國家歌劇院（選購）</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">🛏 K22 Smart Rooms</a></div></div>
+<div class="f note"><b>註</b><div>美泉宮門票先上網訂時段；聖誕市集開到 1/6</div></div>
+</div></section>
+
+<!-- 12/31 -->
+<section class="row cont" data-d="2026-12-31">
+<div class="body">
+<div class="dh"><span class="dn">12/31</span><span class="wd">（四）</span></div>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Belvedere%20Palace%20Vienna" target="_blank" rel="noopener">美景宮</a></li><li>晚上<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rathausplatz%20Wien" target="_blank" rel="noopener">跨年步道活動</a> 🎆</li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="美景宮門票"><span>美景宮門票</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">🛏 K22 Smart Rooms</a></div></div>
+<div class="f note"><b>註</b><div>美景宮聖誕市集開到 12/31</div></div>
+</div></section>
+
+<!-- 1/1 -->
+<section class="row cont" data-d="2027-01-01">
+<div class="body">
+<div class="dh"><span class="dn">1/1</span><span class="wd">（五）</span></div>
+<ul class="trip-ul"><li>看新年音樂會轉播</li><li>下午<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sisi%20Museum%20Hofburg%20Vienna" target="_blank" rel="noopener">霍夫堡皇宮</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="霍夫堡皇宮（茜茜博物館）"><span>霍夫堡皇宮（茜茜博物館）</span></label></div></div>
+<div class="f stay"><b>住</b><div><a class="lk" href="https://www.booking.com/hotel/at/k22-smart-rooms.zh-tw.html" target="_blank" rel="noopener">🛏 K22 Smart Rooms</a></div></div>
+<div class="f note"><b>註</b><div class="warn">霍夫堡元旦開放時間需確認</div></div>
+</div></section>
+
+<!-- 1/2 -->
+<section class="row cont" data-d="2027-01-02">
+<div class="body">
+<div class="dh"><span class="dn">1/2</span><span class="wd">（六）</span></div>
+<ul class="trip-ul"><li><b class="t">12:25</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vienna%20International%20Airport" target="_blank" rel="noopener">維也納 T3</a> MU5064 → 1/3 <b class="t">05:50</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安咸陽 T5</a></li></ul>
+<div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="回程機票" checked><span>回程機票</span></label><label class="tk"><input type="checkbox" data-k="市區到機場延伸票或 CAT"><span>市區到機場延伸票或 CAT</span></label></div></div>
+<div class="f stay"><b>住</b><div class="muted">🛏 機上</div></div>
+<div class="f note"><b>註</b><div>西安轉機 2 小時 5 分，行李直掛</div></div>
+</div></section>
+
+<!-- 1/3 -->
+<section class="row cont" data-d="2027-01-03">
+<div class="body">
+<div class="dh"><span class="dn">1/3</span><span class="wd">（日）</span></div>
+<ul class="trip-ul"><li><b class="t">07:55</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%20an%20Xianyang%20International%20Airport%20Terminal%205" target="_blank" rel="noopener">西安 T5</a> MU2387 → <b class="t">09:45</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing%20Lukou%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">南京祿口 T2</a></li><li><b class="t">14:25</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing%20Lukou%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">南京 T2</a> MU5001 → <b class="t">16:30</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Taoyuan%20International%20Airport%20Terminal%202" target="_blank" rel="noopener">桃園 T2</a></li></ul>
+<div class="f stay"><b>住</b><div class="muted">🏠 到家</div></div>
+<div class="f note"><b>註</b><div>南京轉機 4 小時 40 分</div></div>
+</div></section>
+
+<div class="seg fly" data-s="0" data-n="3"><span>台灣</span></div>
+<div class="seg bud" data-s="3" data-n="8"><span>布達佩斯</span></div>
+<div class="seg prg" data-s="11" data-n="5"><span>布拉格</span></div>
+<div class="seg ckr" data-s="16" data-n="2"><span>庫倫洛夫</span></div>
+<div class="seg prg" data-s="18" data-n="3"><span>布拉格</span></div>
+<div class="seg vie" data-s="21" data-n="1"><span>維也納</span></div>
+<div class="seg hal" data-s="22" data-n="2"><span>哈修塔特</span></div>
+<div class="seg vie" data-s="24" data-n="7"><span>維也納</span></div>
+<div class="seg fly" data-s="31" data-n="3"><span>台灣</span></div>
 </main>
+
+<footer><span class="en">LET'S GO ✈</span>點票券可勾選已買／未買（記在這支手機上）・有底線的地點點了會開 Google 地圖・最後更新 2026/11/14</footer>
+</div>
+
+<script>
+// 行程編輯：存在這支手機的瀏覽器裡
+(function(){
+  // 每天存 {o:編輯當時的原始版, h:改後內容}；文字沒實際改動的就不覆蓋，檔案更新（如新增連結）才會顯示
+  var KEY='xmas-trip-v1',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+  var tmp=document.createElement('ul');
+  function txt(h){tmp.innerHTML=h;return tmp.textContent.replace(/\s+/g,'')}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+  var lists=[].slice.call(document.querySelectorAll('.trip-ul'));
+  var orig={};
+  lists.forEach(function(ul){
+    var d=ul.closest('.row').dataset.d;
+    orig[d]=ul.innerHTML;
+    var e=st[d];
+    if(typeof e==='string') e=st[d]={o:orig[d],h:e};
+    if(e){
+      if(txt(e.h)===txt(e.o)||txt(e.h)===txt(orig[d])) delete st[d];
+      else ul.innerHTML=e.h;
+    }
+    ul.addEventListener('paste',function(ev){
+      ev.preventDefault();
+      document.execCommand('insertText',false,(ev.clipboardData||window.clipboardData).getData('text'));
+    });
+    ul.addEventListener('input',function(){
+      if(!ul.querySelector('li')) ul.innerHTML='<li><br></li>';
+      if(txt(ul.innerHTML)===txt(orig[d])) delete st[d];
+      else st[d]={o:(st[d]&&st[d].o)||orig[d],h:ul.innerHTML};
+      save();
+    });
+  });
+  save();
+  var btn=document.getElementById('editBtn'),bar=document.getElementById('editBar');
+  btn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('editing');
+    btn.textContent=on?'✓ 完成':'✎ 編輯';
+    bar.hidden=!on;
+    lists.forEach(function(ul){ul.contentEditable=on?'true':'false'});
+  });
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    if(!confirm('確定把所有行程還原成原始版本？你改過的內容會消失。'))return;
+    st={};try{localStorage.removeItem(KEY)}catch(e){}
+    lists.forEach(function(ul){ul.innerHTML=orig[ul.closest('.row').dataset.d]});
+  });
+})();
+</script>
+<script>
+// 票券勾選：存在這支手機的瀏覽器裡
+(function(){
+  var KEY='xmas-tix-v1',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+  var boxes=[].slice.call(document.querySelectorAll('.tk input'));
+  function upd(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('ptxt').textContent=n+' / '+boxes.length;
+    document.getElementById('pbar').style.width=(n/boxes.length*100)+'%';
+  }
+  boxes.forEach(function(b){
+    var k=b.dataset.k;
+    if(k in st) b.checked=st[k];
+    b.addEventListener('change',function(){
+      st[k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}
+      upd();
+    });
+  });
+  upd();
+})();
+// 旅途中打開會自動捲到今天
+(function(){
+  var d=new Date(),k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  var r=document.querySelector('.row[data-d="'+k+'"]');
+  if(r){r.classList.add('today');setTimeout(function(){r.querySelector('.body').scrollIntoView({block:'start'})},50);}
+})();
+</script>
+<script>
+// 城市欄：依每天實際高度定位，交通日上下各佔 50%
+(function(){
+  var list=document.querySelector('.list'),bodies=[].slice.call(list.querySelectorAll('.body')),segs=[].slice.call(list.querySelectorAll('.seg'));
+  function y(h){var b=bodies[Math.floor(h/2)];if(!b)return list.clientHeight;return b.offsetTop+(h%2?b.offsetHeight/2:0)}
+  function lay(){segs.forEach(function(g){var s=+g.dataset.s,n=+g.dataset.n,t=y(s);g.style.top=t+'px';g.style.height=(y(s+n)-t)+'px'})}
+  lay();
+  if(window.ResizeObserver)new ResizeObserver(lay).observe(list);
+  window.addEventListener('load',lay);
+  if(document.fonts)document.fonts.ready.then(lay);
+})();
+</script>
 </body>
 </html>
