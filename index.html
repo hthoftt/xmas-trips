@@ -78,6 +78,13 @@ li::marker{color:var(--ink)}
 .tk input:checked{background:currentColor}
 .tk input:checked::after{opacity:1}
 .tk:has(input:checked){color:#2c8a4b}
+.tk .del,.addtk{display:none;font:inherit;font-weight:900;cursor:pointer;border:none;background:none;padding:0 4px;line-height:20px}
+.tk .del{color:#999}
+.addtk{color:#2c8a4b;text-decoration:underline}
+body.editing .tk .del,body.editing .addtk{display:inline-block}
+body.editing .tk span{outline:1.5px dashed #2c8a4b;outline-offset:1px;border-radius:2px;cursor:text;min-width:2em;background:#fff}
+.f.tixrow.empty{display:none}
+body.editing .f.tixrow.empty{display:grid}
 .progress{font-size:.8rem;font-weight:900;margin:12px 2px 10px;display:flex;align-items:center;gap:8px}
 .progress .bar{flex:1;height:8px;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--white)}
 .progress .bar i{display:block;height:100%;background:#2c8a4b;width:0;transition:width .2s}
@@ -99,7 +106,7 @@ footer .en{font-size:1.3rem;display:block}
 <body>
 
 <header><h1>中歐冬日逃離計劃</h1><span class="en">12.18 — 01.03</span><button id="editBtn" type="button">✎ 編輯</button></header>
-<div id="editBar" hidden>編輯模式：直接點行程文字修改，換行會新增一項・<button id="exportBtn" type="button">複製我的修改</button>・<button id="resetBtn" type="button">還原原始行程</button></div>
+<div id="editBar" hidden>編輯模式：點行程或票名直接修改，× 刪除票，＋ 新增票・<button id="exportBtn" type="button">複製我的修改</button>・<button id="resetBtn" type="button">還原原始行程</button></div>
 
 <div class="wrap">
 
@@ -151,7 +158,7 @@ footer .en{font-size:1.3rem;display:block}
 <section class="row cont" data-d="2026-12-22">
 <div class="body">
 <div class="dh"><span class="dn">12/22</span><span class="wd">（二）</span></div>
-<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building" target="_blank" rel="noopener">國會大廈</a>（逛外觀）、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Basilica%20Budapest" target="_blank" rel="noopener">聖伊什特萬聖殿</a></li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1ci%20utca%20Budapest" target="_blank" rel="noopener">瓦采街</a>逛街</li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Portum%20Lines%20Dock%2042%20Szent%20Istv%C3%A1n%20park%201138%20Budapest" target="_blank" rel="noopener">多瑙河夜遊</a>（Klook・Portum Lines 42 號碼頭）</li></ul>
+<ul class="trip-ul"><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hungarian%20Parliament%20Building" target="_blank" rel="noopener">國會大廈</a>（逛外觀）、<a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St.%20Stephens%20Basilica%20Budapest" target="_blank" rel="noopener">聖伊什特萬聖殿</a></li><li><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1ci%20utca%20Budapest" target="_blank" rel="noopener">瓦采街</a>逛街</li><li><b class="t">17:20</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1rkert%20Baz%C3%A1r%20Budapest" target="_blank" rel="noopener">多瑙河夜遊</a>（Várkert Bazár 碼頭）</li></ul>
 <div class="f"><b>票</b><div class="tix"><label class="tk"><input type="checkbox" data-k="多瑙河夜遊遊艇" checked><span>多瑙河夜遊遊艇</span></label></div></div>
 <div class="f stay"><b>住</b><div><a class="lk" href="https://www.airbnb.com.tw/rooms/1461708888152632966" target="_blank" rel="noopener">🛏 Velvet Dream Studio</a></div></div>
 <div class="f note"><b>註</b><div>紅椒粉、臘腸等食品類紀念品留到 12/23 中央市場買</div></div>
@@ -327,14 +334,16 @@ footer .en{font-size:1.3rem;display:block}
     btn.textContent=on?'✓ 完成':'✎ 編輯';
     bar.hidden=!on;
     lists.forEach(function(ul){ul.contentEditable=on?'true':'false'});
+    if(window.__tix)window.__tix.setEditing(on);
   });
   document.getElementById('exportBtn').addEventListener('click',function(){
     var out=[];
     lists.forEach(function(ul){
-      var r=ul.closest('.row'),d=r.dataset.d;
-      if(!st[d])return;
+      var r=ul.closest('.row'),d=r.dataset.d,tx=window.__tix&&window.__tix.changed(d);
+      if(!st[d]&&!tx)return;
       out.push('【'+r.querySelector('.dn').textContent+'】');
-      [].forEach.call(ul.querySelectorAll('li'),function(li){var t=li.textContent.trim();if(t)out.push('- '+t)});
+      if(st[d])[].forEach.call(ul.querySelectorAll('li'),function(li){var t=li.textContent.trim();if(t)out.push('- '+t)});
+      if(tx)out.push('票：'+(window.__tix.names(d).join('、')||'（無）'));
       out.push('');
     });
     var txt=out.length?out.join('\n'):'（沒有修改）';
@@ -344,33 +353,82 @@ footer .en{font-size:1.3rem;display:block}
     else fallback();
   });
   document.getElementById('resetBtn').addEventListener('click',function(){
-    if(!confirm('確定把所有行程還原成原始版本？你改過的內容會消失。'))return;
+    if(!confirm('確定把所有行程和票還原成原始版本？你改過的內容會消失。'))return;
     st={};try{localStorage.removeItem(KEY)}catch(e){}
+    if(window.__tix)window.__tix.reset();
     lists.forEach(function(ul){ul.innerHTML=orig[ul.closest('.row').dataset.d]});
   });
 })();
 </script>
 <script>
-// 票券勾選：存在這支手機的瀏覽器裡
+// 票券：勾選狀態＋票名清單（可編輯、刪除、新增），都存在這支手機的瀏覽器裡
 (function(){
-  var KEY='xmas-tix-v1',st={};
+  var KEY='xmas-tix-v1',LKEY='xmas-tixlist-v1',st={},ls={},editing=false;
   try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
-  var boxes=[].slice.call(document.querySelectorAll('.tk input'));
-  function upd(){
-    var n=boxes.filter(function(b){return b.checked}).length;
-    document.getElementById('ptxt').textContent=n+' / '+boxes.length;
-    document.getElementById('pbar').style.width=(n/boxes.length*100)+'%';
-  }
-  boxes.forEach(function(b){
-    var k=b.dataset.k;
-    if(k in st) b.checked=st[k];
-    b.addEventListener('change',function(){
-      st[k]=b.checked;
-      try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}
-      upd();
-    });
+  try{ls=JSON.parse(localStorage.getItem(LKEY))||{}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st));localStorage.setItem(LKEY,JSON.stringify(ls))}catch(e){}}
+  function same(a,b){return JSON.stringify(a)===JSON.stringify(b)}
+  var orig={},def={},box={};
+  [].forEach.call(document.querySelectorAll('.row'),function(r){
+    var d=r.dataset.d,tix=r.querySelector('.tix'),f;
+    if(tix){f=tix.parentNode}
+    else{
+      f=document.createElement('div');f.className='f';f.innerHTML='<b>票</b><div class="tix"></div>';
+      var stay=r.querySelector('.f.stay');stay.parentNode.insertBefore(f,stay);tix=f.querySelector('.tix');
+    }
+    f.classList.add('tixrow');
+    orig[d]=[].map.call(tix.querySelectorAll('.tk input'),function(i){def[i.dataset.k]=i.checked;return i.dataset.k});
+    box[d]=tix;
+    var e=ls[d];
+    if(e&&(same(e.h,e.o)||same(e.h,orig[d])))delete ls[d];
   });
-  upd();
+  function names(d){return (ls[d]?ls[d].h:orig[d]).slice()}
+  function setList(d,l){
+    if(same(l,orig[d]))delete ls[d];
+    else ls[d]={o:(ls[d]&&ls[d].o)||orig[d],h:l};
+    save();
+  }
+  function upd(){
+    var b=[].slice.call(document.querySelectorAll('.tk input')),n=b.filter(function(x){return x.checked}).length;
+    document.getElementById('ptxt').textContent=n+' / '+b.length;
+    document.getElementById('pbar').style.width=(b.length?n/b.length*100:0)+'%';
+  }
+  function render(d,focusLast){
+    var tix=box[d],l=names(d);
+    tix.innerHTML='';
+    l.forEach(function(n,i){
+      var lab=document.createElement('label');lab.className='tk';
+      var inp=document.createElement('input');inp.type='checkbox';inp.checked=(n in st)?st[n]:!!def[n];
+      var sp=document.createElement('span');sp.textContent=n;sp.contentEditable=editing?'true':'false';
+      var del=document.createElement('button');del.type='button';del.className='del';del.textContent='×';del.title='刪除';
+      lab.appendChild(inp);lab.appendChild(sp);lab.appendChild(del);tix.appendChild(lab);
+      inp.addEventListener('change',function(){st[sp.textContent.trim()]=inp.checked;save();upd()});
+      lab.addEventListener('click',function(ev){if(editing&&ev.target!==inp)ev.preventDefault()});
+      sp.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();sp.blur()}});
+      sp.addEventListener('paste',function(ev){ev.preventDefault();document.execCommand('insertText',false,(ev.clipboardData||window.clipboardData).getData('text').replace(/\s+/g,' '))});
+      sp.addEventListener('blur',function(){
+        var v=sp.textContent.trim(),cur=names(d);
+        if(!v){cur.splice(i,1);setList(d,cur);render(d);return}
+        if(v===cur[i])return;
+        cur[i]=v;st[v]=inp.checked;setList(d,cur);
+      });
+      del.addEventListener('click',function(ev){ev.preventDefault();var cur=names(d);cur.splice(i,1);setList(d,cur);render(d)});
+    });
+    var add=document.createElement('button');add.type='button';add.className='addtk';add.textContent='＋ 新增票';
+    add.addEventListener('click',function(){var cur=names(d);cur.push('新的票');setList(d,cur);render(d,true)});
+    tix.appendChild(add);
+    tix.parentNode.classList.toggle('empty',!l.length);
+    upd();
+    if(focusLast){var sps=tix.querySelectorAll('.tk span'),last=sps[sps.length-1];last.focus();document.execCommand('selectAll',false,null)}
+  }
+  function all(){Object.keys(box).forEach(function(d){render(d)})}
+  all();save();
+  window.__tix={
+    setEditing:function(on){if(!on&&document.activeElement)document.activeElement.blur();editing=on;all()},
+    reset:function(){ls={};save();all()},
+    changed:function(d){return !!ls[d]},
+    names:names
+  };
 })();
 // 旅途中打開會自動捲到今天
 (function(){
