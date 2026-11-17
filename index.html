@@ -336,8 +336,7 @@ footer .en{font-size:1.3rem;display:block}
       [].forEach.call(ul.querySelectorAll('li'),function(li){var t=li.textContent.trim();if(t)out.push('- '+t)});
       out.push('');
     });
-    var txt=out.length?out.join('
-'):'（沒有修改）';
+    var txt=out.length?out.join('\n'):'（沒有修改）';
     function fallback(){window.prompt('複製下面的文字：',txt)}
     if(navigator.clipboard&&navigator.clipboard.writeText)
       navigator.clipboard.writeText(txt).then(function(){alert('已複製 '+out.filter(function(x){return x[0]==='【'}).length+' 天的修改，貼給 Claude 就可以')},fallback);
