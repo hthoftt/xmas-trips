@@ -290,7 +290,7 @@ footer .en{font-size:1.3rem;display:block}
 // 行程編輯：存在這支手機的瀏覽器裡
 (function(){
   // 每天存 {o:編輯當時的原始版, h:改後內容}；文字沒實際改動的就不覆蓋，檔案更新（如新增連結）才會顯示
-  var KEY='xmas-trip-v1',st={};
+  var KEY='xmas-trip-v2',st={};
   try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
   var tmp=document.createElement('ul');
   function txt(h){tmp.innerHTML=h;return tmp.textContent.replace(/\s+/g,'')}
